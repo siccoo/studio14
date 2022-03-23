@@ -1,5 +1,5 @@
 # Simple Weather App
-A simple web app that forecast weather. Online Api for Weather Forecast is fetched from (https://openweathermap.org/api)
+A simple web app that forecast weather. Online Api for Weather Forecast is fetched from (https://developer.accuweather.com/)
 
 ### Tasks 
 
