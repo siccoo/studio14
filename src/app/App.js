@@ -1,13 +1,26 @@
 import { useEffect, useState } from "react";
 import { WeatherDay } from "../components/weatherDay/WeatherDay";
+import styles from "./styles.module.css";
+import { apiKey } from "../constants/constants";
 
 const App = () => {
-  const [weatherInfo, setWeatherInfo] = useState()
+  const [weatherInfo, setWeatherInfo] = useState();
+
+  const padNum = (num) => {
+    const stringNum = num + "";
+    const stringLen = stringNum.length;
+
+    if (stringLen === 1) {
+      return "0" + stringNum;
+    } else {
+      return stringNum;
+    }
+  }
+
   const locationKey = "3722_PC";
-  const apikey = "NHbMOu7Wqx5FUYnlhzvmRf5lDcAqgqsF";
 
   useEffect(() => {
-    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/locationKey=${locationKey}?apikey=${apikey}`)
+    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/locationKey=${locationKey}?apikey=${apiKey}`)
       .then(res => res.json())
       .then(res => {
         console.log(res);
@@ -17,7 +30,7 @@ const App = () => {
               min: df.Temperature.Minimum.Value,
               max: df.Temperature.Maximum.Value,
               weatherType: df.Day.IconPhrase,
-              weatherKey: df.Day.Icon,
+              weatherKey: padNum(df.Day.Icon),
             }
           }))
       })
@@ -28,9 +41,9 @@ const App = () => {
   // }, [weatherInfo]);
 
   return (
-    <div>
+    <div className={styles.main}>
       {!!weatherInfo && weatherInfo.map((i, index) => (
-        <div key={index}>
+        <div className={styles.day} key={index}>
           <WeatherDay
             min={i.min}
             max={i.max}
