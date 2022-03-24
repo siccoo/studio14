@@ -9,11 +9,21 @@ A simple web app that forecast weather. Online Api for Weather Forecast is fetch
 
 - API data fetch- [*]
 
-## Tech stacks
+### Tech stacks
 + React 
 + Style Modules
 
+### Clone
++ To clone the project, open the terminal and 
+    * Run: ```git clone https://github.com/siccoo/studio14.git```;
+
+### Installation
+Follow these steps to setup the project
++ Install and configure the dependencies;
+    * Open the Terminal or Command Prompt and run: ```npm install | yarn install```;
+
 ### Run Locally
-+ Clone this Repository or download the Repository
-+ Run `npm install` or `yarn install` (Assuming you have node installed, yarn ready to use)
-+ Run `npm start` or `yarn start`
++ Start the project
+    * Open the Terminal or Command Prompt and run: ```npm start | yarn start```;
+
+Open http://localhost:3000 to view it in the browser
