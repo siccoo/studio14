@@ -33,11 +33,14 @@ export const LocationSearch = ({
             .then(res => res.find(
                 l => l.Country.ID === "NG",
             ))
-            .then(res => onCityFound({
-                name: res.LocalizedName,
-                key: res.Key,
-                state: res.AdministrativeArea.ID,
-            }));
+            .then(res => {
+                onCityFound({
+                    name: res.LocalizedName,
+                    key: res.Key,
+                    state: res.AdministrativeArea.ID,
+                });
+                setZipCode("")
+            });
     }
     return (
         <div className={styles.main}>
